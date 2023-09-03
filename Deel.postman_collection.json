@@ -1,0 +1,306 @@
+{
+	"info": {
+		"_postman_id": "59cd8a50-2f40-43b3-877d-579735a954c0",
+		"name": "Deel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Contract",
+			"item": [
+				{
+					"name": "GetContractbyId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "profile_id",
+								"value": "{{profile_id}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/contracts/3",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"contracts",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllNotTerminatedContractbyProfileId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "profile_id",
+								"value": "{{profile_id}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/contracts?limit={{limit}}&offset={{offset}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"contracts"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "{{limit}}"
+								},
+								{
+									"key": "offset",
+									"value": "{{offset}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Job",
+			"item": [
+				{
+					"name": "UnpaidJob-ActiveContractOnly",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "profile_id",
+								"value": "{{profile_id}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/jobs/unpaid?limit={{limit}}&offset={{offset}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"jobs",
+								"unpaid"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "{{limit}}"
+								},
+								{
+									"key": "offset",
+									"value": "{{offset}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "JobPaid",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "profile_id",
+								"value": "{{profile_id}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/jobs/3/pay",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"jobs",
+								"3",
+								"pay"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Balance",
+			"item": [
+				{
+					"name": "Deposit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "profile_id",
+								"value": "{{profile_id}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"depositAmmout\": 12\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/balances/deposit/1",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"balances",
+								"deposit",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "BestProfessional",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "profile_id",
+								"value": "{{profile_id}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/admin/best-profession?limit={{limit}}&offset={{offset}}&start=01-01-2020&end=09-10-2023",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"admin",
+								"best-profession"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "{{limit}}"
+								},
+								{
+									"key": "offset",
+									"value": "{{offset}}"
+								},
+								{
+									"key": "start",
+									"value": "01-01-2020"
+								},
+								{
+									"key": "end",
+									"value": "09-10-2023"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BestClient",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "profile_id",
+								"value": "{{profile_id}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/admin/best-client?offset={{offset}}&start=01-01-2010&end=09-30-2023",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"admin",
+								"best-client"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "{{limit}}",
+									"disabled": true
+								},
+								{
+									"key": "offset",
+									"value": "{{offset}}"
+								},
+								{
+									"key": "start",
+									"value": "01-01-2010"
+								},
+								{
+									"key": "end",
+									"value": "09-30-2023"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseurl",
+			"value": "http://localhost:3001",
+			"type": "default"
+		},
+		{
+			"key": "profile_id",
+			"value": "5",
+			"type": "default"
+		},
+		{
+			"key": "limit",
+			"value": "10",
+			"type": "default"
+		},
+		{
+			"key": "offset",
+			"value": "0",
+			"type": "default"
+		}
+	]
+}
