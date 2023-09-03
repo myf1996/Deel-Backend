@@ -1,0 +1,48 @@
+paths: 
+  /jobs/unpaid:
+    get:
+      tags:
+        - Jobs
+      summary: Get All unpaid jobs belongs to Clinet/Contractor for active contracts
+      security:
+        - BearerAuth: []
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: limit
+          type: integer
+          required: false
+        - in: query
+          name: offset
+          type: integer
+          required: false
+      responses:
+        '200':
+          description: OK  
+  /jobs/:job_id/pay:
+    post:
+      tags:
+        - Jobs
+      summary: Client Only - Client pay for job to Contractor
+      security:
+        - BearerAuth: []
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: job_id
+          type: integer
+          required: true
+      responses:
+        '200':
+          description: OK  
+                                                                 
+definitions:
+  balance-deposit:
+    type: object
+    properties:
+      depositAmount:
+        type: decimal
+        required: true
+           

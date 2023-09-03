@@ -1,0 +1,48 @@
+paths: 
+  /contracts:
+    get:
+      tags:
+        - Contracts
+      summary: List of non-terminated contract belongs to Clinet/Contractor
+      security:
+        - BearerAuth: []
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: limit
+          type: integer
+          required: false
+        - in: query
+          name: offset
+          type: integer
+          required: false
+      responses:
+        '200':
+          description: OK  
+  /contracts/:id:
+    get:
+      tags:
+        - Contracts
+      summary: Get Contract by id, if belongs to profile
+      security:
+        - BearerAuth: []
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          type: integer
+          required: true
+      responses:
+        '200':
+          description: OK  
+                                                                 
+definitions:
+  balance-deposit:
+    type: object
+    properties:
+      depositAmount:
+        type: decimal
+        required: true
+           

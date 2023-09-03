@@ -1,0 +1,32 @@
+paths: 
+  /balances/deposit/:userId:
+    post:
+      tags:
+        - Profile
+      summary: Deposit Balance Into his(client) own account
+      security:
+        - BearerAuth: []
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: userId
+          type: integer
+          required: true
+        - in: body
+          name: body
+          required: true
+          schema:
+            "$ref": "#/definitions/balance-deposit"
+      responses:
+        '200':
+          description: OK  
+                                                                 
+definitions:
+  balance-deposit:
+    type: object
+    properties:
+      depositAmount:
+        type: decimal
+        required: true
+           

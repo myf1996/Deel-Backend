@@ -1,0 +1,68 @@
+paths: 
+  /admin/best-profession:
+    get:
+      tags:
+        - Admin
+      summary: Best earned profession
+      security:
+        - BearerAuth: []
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: limit
+          type: integer
+          required: false
+        - in: query
+          name: offset
+          type: integer
+          required: false
+        - in: query
+          name: start
+          type: string
+          required: false
+        - in: query
+          name: end
+          type: string
+          required: false
+      responses:
+        '200':
+          description: OK  
+  /admin/best-clients:
+    get:
+      tags:
+        - Admin
+      summary: Best paid client
+      security:
+        - BearerAuth: []
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: limit
+          type: integer
+          required: false
+        - in: query
+          name: offset
+          type: integer
+          required: false
+        - in: query
+          name: start
+          type: string
+          required: false
+        - in: query
+          name: end
+          type: string
+          required: false
+      responses:
+        '200':
+          description: OK  
+                                                                 
+definitions:
+  balance-deposit:
+    type: object
+    properties:
+      depositAmount:
+        type: decimal
+        required: true
+           
